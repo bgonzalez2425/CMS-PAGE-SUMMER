@@ -1,18 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Vibrant Homes
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Georgia&amp;display=swap" rel="stylesheet"/>
+  <title id="site-title">Summer Videos</title>
+  <!-- Netlify Identity Widget para login -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Tailwind CSS para estilos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fuente Georgia desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet"/>
+  <!-- Fuentes alternativas que se pueden seleccionar desde el panel -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&display=swap" rel="stylesheet"/>
+  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="styles.css"/>
  </head>
  <body>
   <!-- Background image with overlay -->
-  <div class="background-image"></div>
+  <div class="background-image" id="dynamic-background"></div>
   
   <!-- Modal container for full-size video -->
   <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
@@ -28,87 +33,56 @@
   <div class="main-container">
     <!-- Title container with suns -->
     <div class="title-container">
-      <div class="sun-icon left-sun">
+      <div class="sun-icon left-sun" id="left-sun">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
         </svg>
       </div>
-      <h1 class="page-title">
-        <span class="text-white">VIDEOS</span> 
-        <span class="text-white">SUMMER</span> 
-        <span class="text-white">PROGRAMMES</span>
+      <h1 class="page-title" id="main-title">
+        <span id="title-part1" class="text-white">VIDEOS</span> 
+        <span id="title-part2" class="text-white">SUMMER</span> 
+        <span id="title-part3" class="text-white">PROGRAMMES</span>
       </h1>
-      <div class="sun-icon right-sun">
+      <div class="sun-icon right-sun" id="right-sun">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
         </svg>
       </div>
     </div>
     
-    <div class="video-grid">
-      <!-- Video item: New York -->
-      <div class="video-container" data-video-id="dQw4w9WgXcQ">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: London -->
-      <div class="video-container" data-video-id="3JZ_D3ELwOQ">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Paris -->
-      <div class="video-container" data-video-id="V-_O7nl0Ii0">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/V-_O7nl0Ii0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Toronto -->
-      <div class="video-container" data-video-id="Zi_XLOBDo_Y">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/Zi_XLOBDo_Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Berlin -->
-      <div class="video-container" data-video-id="e-ORhEE9VVg">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/e-ORhEE9VVg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Barcelona -->
-      <div class="video-container" data-video-id="kXYiU_JCYtU">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Copenhagen -->
-      <div class="video-container" data-video-id="L_jWHffIx5E">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/L_jWHffIx5E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
-      
-      <!-- Video item: Los Angeles -->
-      <div class="video-container" data-video-id="hTWKbfoikeg">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/hTWKbfoikeg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class="fullscreen-expand-btn" aria-label="Expand video"></button>
-      </div>
+    <!-- Video grid - será cargada dinámicamente -->
+    <div class="video-grid" id="dynamic-video-grid">
+      <!-- Los videos se cargarán dinámicamente desde la configuración -->
     </div>
     
-    <!-- Logos container -->
-    <div class="logos-container">
-      <div class="logo-item2">
-        <img src="logo2.png" alt="Logo 1" class="logo-image2">
-      </div>
-      <div class="logo-item">
-        <img src="logo1.png" alt="Logo 2" class="logo-image">
-      </div>
+    <!-- Logos container - será cargado dinámicamente -->
+    <div class="logos-container" id="dynamic-logos">
+      <!-- Los logos se cargarán dinámicamente desde la configuración -->
     </div>
     
     <!-- Footer with user info and date -->
-
+    <footer class="footer" id="dynamic-footer">
+      <!-- El contenido del footer se cargará dinámicamente -->
+    </footer>
   </div>
   
+  <!-- Scripts -->
   <script src="script.js"></script>
+  
+  <!-- Cargador de configuración dinámico -->
+  <script src="config-loader.js"></script>
+  
+  <!-- Script para Netlify Identity -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
  </body>
 </html>
